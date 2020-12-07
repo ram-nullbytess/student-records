@@ -83,7 +83,7 @@ router.put('/update/:id', authenticate, (req, res, next) => {
 
 
 
-  router.delete('/delete/:id', (req, res, next) => {
+  router.delete('/delete/:id', authenticate,(req, res, next) => {
     StudentRecord.deleteOne({_id: req.params.id}).then(
       () => {
         res.status(200).json({
