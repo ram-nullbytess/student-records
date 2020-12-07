@@ -3,25 +3,8 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-
 const Admin = require('../models/teachers');
 
-router.get('/', (req, res, next) => {
-
-    Admin.find({})
-    .exec()
-    .then(doc => {
-        res.status(201).json({
-            message: doc
-        });
-    })
-    .catch(er => {
-        res.status(500).json({
-            error: er
-        })
-    });
-
-});
 
 router.post('/signup', (req, res, next) => {
 
